@@ -13,6 +13,7 @@
       line-height: 1.8;
       min-height: 100vh;
       overflow-x: hidden;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><text y="20" font-size="20">🏀</text></svg>'), auto;
     }
 
     /* Animated background */
@@ -252,6 +253,16 @@
       border-color: rgba(255, 68, 68, 0.6);
     }
 
+    .img-caption {
+      margin-top: 20px;
+      font-size: 0.95em;
+      color: #b0b0b0;
+      font-style: italic;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
     /* Section cards */
     .section-card {
       background: linear-gradient(135deg, rgba(139, 0, 0, 0.08) 0%, rgba(15, 52, 96, 0.08) 100%);
@@ -463,6 +474,71 @@
     .loading {
       animation: pulse 2s ease-in-out infinite;
     }
+
+    /* Rating System */
+    .rating-container {
+      background: linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(179, 0, 0, 0.95) 100%);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(139, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 68, 68, 0.3);
+      margin: 60px auto 0 auto;
+      max-width: 400px;
+      transition: all 0.3s ease;
+    }
+
+    .rating-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(139, 0, 0, 0.6);
+    }
+
+    .rating-title {
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .rating-stars {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .basketball-star {
+      font-size: 30px;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><text y="20" font-size="20">🏀</text></svg>'), pointer;
+      transition: all 0.3s ease;
+      filter: grayscale(100%) brightness(0.5);
+    }
+
+    .basketball-star:hover,
+    .basketball-star.hover {
+      filter: grayscale(0%) brightness(1.2);
+      transform: scale(1.2) rotate(15deg);
+    }
+
+    .basketball-star.selected {
+      filter: grayscale(0%) brightness(1);
+    }
+
+    .rating-message {
+      color: #ffeb3b;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 10px;
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .rating-message.show {
+      display: block;
+    }
   </style>
   <script>
     function showPage(id){
@@ -508,12 +584,10 @@
       <p>The ending of the 1972 Olympic basketball game reignited Cold War tensions by demonstrating that even sports were not immune to ideological rivalry. The U.S. and the Soviet Union each used the outcome to reinforce narratives about their respective systems. For Americans, it was a reminder of the challenges posed by the Soviet Union in all arenas, including those considered apolitical like sports. For the Soviets, it was a symbolic victory that reinforced their global prestige and projected power beyond military and political domains. The event exemplified how deeply sports had been politicized during the Cold War, setting the stage for the later use of basketball as a tool not just for competition, but for diplomacy and cultural exchange once tensions began to ease.</p>
     </div>
   </div>
-  </div>
 
   <div id="info" class="page">
     <h1>Narrative</h1>
-    <p>During the Cold War, basketball became more than simply a game; it became a platform of global competition transformed into resolution. The bitter rivalry between the U.S. and the Soviets witnessed Olympic basketball matches, specifically the 1972 Olympic Final match, turning out to be epitomes of clashes between the East and West of the globe in terms of ideology. The confusing final of the 1972 Olympic basketball match saw the Soviets overturn the U.S. lead in the later stages of the match. This match became a political statement across the world rather than a sports achievement in the U.S., indicating the distrustful and tense relationship between the U.S. and Soviets The U.S. felt that the result of the match strongly depicted the Soviets' manipulation in the match (Hatcher, 2023), whereas the victory in the match back in Soviets became the indicator of the Soviets’ disciplined and more developed system (Archambault, 2023). However, with the diminishing political tensions in the late 1980s, basketball slowly became less of a battle arena and more of a diplomatic platform. The Atlanta Hawks in 1988 embarked upon a historic journey to Moscow in search of international stars in what became one of the first direct approaches by the NBA towards the sports infrastructure of the Soviet Union. The Atlanta Hawks’ trip to Russia provided an opportunity for Alexander Volkov, the first Russian in the NBA (Woo, 2017), and opened doors for other European basketball stars to join the league later in the future (LYBC, 2024). Skilled international basketball stars of East European and Russian descent like Arvydas Sabonis imparted new philosophies of play and professionalism in the NBA league in what may be seen as the beginning of the end of basketball as a platform of competition and the beginning of cultural diplomacy (Donlan, 2024). The influx of international talent in the NBA not only raised the caliber of the sport but also brought into focus the use of basketball as a tool of soft power in the post-Cold War international system. Where basketball had historically reflected the bipartitioning of the world in terms of political ideologies, there now emerged the possibilities of sport overcoming those barriers in favor of cooperation across the globe. The expansion of the league beyond national boundaries, including but not limited to those of China, further emphasized the use of the NBA as a diplomatic tool in spreading influence not through political or military power but through sports achievements (Thomas, 2019). The newcomers in the world of the NBA finally proved that through sports, political histories could be overcome in favor of a new dawn in which basketball became the universal language of respect and connectedness.
-
+    <p>During the Cold War, basketball became more than simply a game; it became a platform of global competition transformed into resolution. The bitter rivalry between the U.S. and the Soviets witnessed Olympic basketball matches, specifically the 1972 Olympic Final match, turning out to be epitomes of clashes between the East and West of the globe in terms of ideology. The confusing final of the 1972 Olympic basketball match saw the Soviets overturn the U.S. lead in the later stages of the match. This match became a political statement across the world rather than a sports achievement in the U.S., indicating the distrustful and tense relationship between the U.S. and Soviets The U.S. felt that the result of the match strongly depicted the Soviets' manipulation in the match (Hatcher, 2023), whereas the victory in the match back in Soviets became the indicator of the Soviets' disciplined and more developed system (Archambault, 2023). However, with the diminishing political tensions in the late 1980s, basketball slowly became less of a battle arena and more of a diplomatic platform. The Atlanta Hawks in 1988 embarked upon a historic journey to Moscow in search of international stars in what became one of the first direct approaches by the NBA towards the sports infrastructure of the Soviet Union. The Atlanta Hawks' trip to Russia provided an opportunity for Alexander Volkov, the first Russian in the NBA (Woo, 2017), and opened doors for other European basketball stars to join the league later in the future (LYBC, 2024). Skilled international basketball stars of East European and Russian descent like Arvydas Sabonis imparted new philosophies of play and professionalism in the NBA league in what may be seen as the beginning of the end of basketball as a platform of competition and the beginning of cultural diplomacy (Donlan, 2024). The influx of international talent in the NBA not only raised the caliber of the sport but also brought into focus the use of basketball as a tool of soft power in the post-Cold War international system. Where basketball had historically reflected the bipartitioning of the world in terms of political ideologies, there now emerged the possibilities of sport overcoming those barriers in favor of cooperation across the globe. The expansion of the league beyond national boundaries, including but not limited to those of China, further emphasized the use of the NBA as a diplomatic tool in spreading influence not through political or military power but through sports achievements (Thomas, 2019). The newcomers in the world of the NBA finally proved that through sports, political histories could be overcome in favor of a new dawn in which basketball became the universal language of respect and connectedness.
         </p>
 
     <div class="img-box">
@@ -599,8 +673,4 @@ Sabonis's success showed that talent transcended political boundaries, inspiring
 
     <div class="section-card">
       <h1>Political Impact</h1>
-      <p>The political impact of the Cold War on the rise of international NBA talent can be seen in the way basketball changed from a symbol of rivalry into a channel for cooperation between the United States and European nations. During the Cold War, the United States and the Soviet Union used basketball as a stage for proving the strength of their political systems, which turned every major game into a contest of ideology rather than just a contest of skill. When the Cold War ended, the political restrictions that had prevented Eastern European players from joining American leagues disappeared, and former opponents were suddenly able to participate in the same sports world. This brought a new era of cultural exchange, because the arrival of players such as Arvydas Sabonis and Vlade Divac showed that athletes from once restricted nations could take part in the NBA and become global stars. Their participation encouraged both sides to see each other with more openness and less suspicion. The NBA became a direct link between the United States and European countries, creating friendships, business relationships, and a shared appreciation for the sport. As a result, basketball helped reduce political tension and supported stronger international connections. The growing presence of European players in the league proved that the end of the Cold War allowed sports to shift from conflict toward cooperation, and this change strengthened relations between the United States and many European nations.</p>
-    </div>
-  </div>
-</body>
-</html>
+      <p>The political impact of the Cold War on the rise of international NBA talent can be seen in the way basketball changed from a symbol of rivalry into a channel for cooperation between the United States an
